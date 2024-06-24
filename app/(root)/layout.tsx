@@ -1,7 +1,6 @@
 
-import MobileNav from "@/components/MobileNav";
-import Sidebar from "@/components/Sidebar";
-import Image from "next/image";
+import Sidebar from "@/components/sidebar/Sidebar";
+import Navbar from "@/components/navbar/Navbar";
 
 export default function RootLayout({
   children,
@@ -12,21 +11,17 @@ export default function RootLayout({
 
   return (
     <main className="">
-      <Sidebar  />
-      <div className="">
-        {/* <div className="">
-          <Image
-            src="/icons/logo.svg"
-            width={30}
-            height={30}
-            alt="menu icon"
-          />
-          <div>
-            <MobileNav
-               />
-          </div>
-        </div> */}
-        {children}
+      <div className="nav_wrapper">
+  <Navbar />
+      </div>
+ 
+      <div className="me">
+         <Sidebar  />
+
+       
+          {children}
+      
+      
       </div>
 
     </main>
