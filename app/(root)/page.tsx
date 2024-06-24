@@ -8,7 +8,7 @@ const Home = () => {
     <section className=''>
         <div className=''>
             <header className=''>
-               
+               <h1>zik</h1>
             </header>
         </div>
 

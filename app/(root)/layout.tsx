@@ -14,7 +14,7 @@ export default function RootLayout({
     <main className="">
       <Sidebar  />
       <div className="">
-        <div className="">
+        {/* <div className="">
           <Image
             src="/icons/logo.svg"
             width={30}
@@ -25,7 +25,7 @@ export default function RootLayout({
             <MobileNav
                />
           </div>
-        </div>
+        </div> */}
         {children}
       </div>
 
