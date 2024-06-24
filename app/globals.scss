@@ -46,22 +46,18 @@ body {
     padding-top: 5rem;
 }
 
-.you {
-    width: 20%;   
-   
-}
 
 .nav_wrapper {
     position: fixed;
-    
+   
 }
 
 .main_section {
     background-color: var(--background-color);
-    width: 80%;
+    width: 100vw;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 2rem;
-   
+
 }
 
 

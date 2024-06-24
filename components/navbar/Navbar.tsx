@@ -3,7 +3,7 @@ import "./Navbar.scss"
 import Image from 'next/image'
 import logo from "../../public/logo.png"
 import avatar from "../../public/avatar.png"
-import { IoIosNotificationsOutline } from "react-icons/io";
+// import { IoIosNotificationsOutline } from "react-icons/io";
 
 
 const Navbar = () => {
@@ -29,7 +29,7 @@ const Navbar = () => {
 
         <div className="nav_bar_activities">
           <div><h5>Docs</h5></div>
-          <div><IoIosNotificationsOutline size={26} /></div>
+          {/* <div><IoIosNotificationsOutline size={26} /></div> */}
           <div className='nav_bar_profile'>
             <Image src={avatar} width={40} height={40} alt='avatar' />
             <div>Adedeji</div>
