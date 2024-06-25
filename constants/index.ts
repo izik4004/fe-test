@@ -1,5 +1,5 @@
 export const sidebarLinks = {
-    section1: "Customers",
+    customers: "Customers",
     customersUrl: [
       {
         imgURL: "/users.svg",
@@ -42,7 +42,7 @@ export const sidebarLinks = {
         label: "Karma",
       },
     ],
-    section2: "Business",
+    businesses: "Business",
     businessUrl: [
       {
         imgURL: "/organization.svg",
@@ -91,7 +91,7 @@ export const sidebarLinks = {
       },
     ],
 
-    section3: "Settings",
+    settings: "Settings",
     settingsUrl: [
       {
         imgURL: "/preferences.svg",

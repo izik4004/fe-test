@@ -1,52 +1,48 @@
-import React from 'react'
-import "./Sidebar.scss"
-import { sidebarLinks } from '@/constants';
-import Image from 'next/image'
-import dashboardIcon from "../../public/dashboard.svg"
-import Link from 'next/link';
 
+"use client"
+
+// Sidebar.tsx
+import React from 'react';
+import './Sidebar.scss';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import dashboardIcon from '../../public/dashboard.svg';
+import { sidebarLinks,  } from '@/constants';
+import { SidebarLink} from '../../Types/index';
 
 const Sidebar: React.FC = () => {
+  const pathname = usePathname();
+
+  const renderLinks = (links: SidebarLink[], isActive: (route: string) => boolean) => (
+    <ul>
+      {links.map((link, index) => (
+        <li key={index} className={`sidebar_items ${isActive(link.route) ? 'active' : ''}`}>
+          <Link href={link.route}>
+            <Image src={link.imgURL} alt={link.label} width={25} height={20} />
+            <span>{link.label}</span>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+
+  const isActive = (route: string) => pathname === route || pathname.startsWith(`${route}/`);
+
   return (
     <div className="sidebar">
-      <div>
-        <div>11</div>
-
-        <div>
-        <li  className='sidebar_items'>
-               <Image src={dashboardIcon} alt="icon" width={25} height={20} />
-            <a href="">Dashboard</a>
-          </li>
-        </div>
+      <div className="sidebar_header">
+        <li className='sidebar_items'>
+          <Image src={dashboardIcon} alt="Dashboard" width={25} height={20} />
+          <Link href="/">Dashboard</Link>
+        </li>
       </div>
-      <h3>{sidebarLinks.section1}</h3>
-      <div>
-        {sidebarLinks.customersUrl.map((link, index) => (
-          <Link href={link.route} key={index} className='sidebar_items'>
-               <Image src={link.imgURL} alt={link.label} width={25} height={20} />
-            <p>{link.label}</p>
-          </Link>
-        ))}
-      </div>
-      <h3>{sidebarLinks.section2}</h3>
-      <ul>
-        {sidebarLinks.businessUrl.map((link, index) => (
-           <li key={index} className='sidebar_items'>
-            <Image src={link.imgURL} alt={link.label} width={25} height={20} />
-            <a href={link.route}>{link.label}</a>
-          </li>
-        ))}
-      </ul>
-     
-      <h3>{sidebarLinks.section3}</h3>
-      <ul>
-        {sidebarLinks.settingsUrl.map((link, index) => (
-          <li key={index} className='sidebar_items'>
-             <Image src={link.imgURL} alt={link.label} width={25} height={20} />
-            <a href={link.route}>{link.label}</a>
-          </li>
-        ))}
-      </ul>
+      <h3>{sidebarLinks.customers}</h3>
+      {renderLinks(sidebarLinks.customersUrl, isActive)}
+      <h3>{sidebarLinks.businesses}</h3>
+      {renderLinks(sidebarLinks.businessUrl, isActive)}
+      <h3>{sidebarLinks.settings}</h3>
+      {renderLinks(sidebarLinks.settingsUrl, isActive)}
     </div>
   );
 };
