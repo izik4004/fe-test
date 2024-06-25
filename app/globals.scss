@@ -26,6 +26,7 @@ body {
     line-height: 1.5;
     font-family: "Lato", sans-serif;
     color: var(--text-color);
+    overflow-y: scroll;
 }
 
 
@@ -46,6 +47,10 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 2rem;
     width: 100vw;
+    // height: 100vh;
+    overflow-y: hidden;
+    // position: relative;
+    // margin-bottom: 20px;
 }
 
 

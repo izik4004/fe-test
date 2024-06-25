@@ -1,0 +1,95 @@
+// Table.scss
+
+.table-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    overflow-x: auto;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 1em;
+        font-family: Arial, sans-serif;
+        min-width: 600px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+        thead {
+            tr {
+                background-color: #009879;
+                color: #ffffff;
+                text-align: left;
+            }
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+        }
+
+        tbody {
+            tr {
+                border-bottom: 1px solid #dddddd;
+
+                &:nth-of-type(even) {
+                    background-color: #f3f3f3;
+                }
+
+                &:last-of-type {
+                    border-bottom: 2px solid #009879;
+                }
+
+                &:hover {
+                    background-color: #f1f1f1;
+                }
+            }
+        }
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+
+        button {
+            border: 1px solid #009879;
+            background-color: #009879;
+            color: white;
+            padding: 8px 12px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 3px;
+
+            &:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+        }
+
+        input {
+            width: 50px;
+            padding: 8px;
+            margin: 0 5px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        select {
+            padding: 8px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .pagination {
+            select {
+                display: none; // Hide select on small screens
+            }
+        }
+    }
+}
