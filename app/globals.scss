@@ -28,19 +28,8 @@ body {
     color: var(--text-color);
 }
 
-// h1, h2, h3, h4, h5, h6 {
-//     font-size: "Inter", sans-serif;
-//     color: var(--text-color);
-// }
 
-// .wrapper {
-//     max-width: 1440px;
-//     margin-inline: auto;
-//     // padding-inline: 2rem;
-//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-// }
-
-.me {
+.container__wrapper {
     display: flex;
     height: 100vh;
     padding-top: 5rem;
@@ -54,10 +43,9 @@ body {
 
 .main_section {
     background-color: var(--background-color);
-    width: 100vw;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 2rem;
-
+    width: 100vw;
 }
 
 

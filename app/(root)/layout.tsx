@@ -12,16 +12,17 @@ export default function RootLayout({
   return (
     <main className="">
       <div className="nav_wrapper">
-  <Navbar />
+        <Navbar />
       </div>
- 
-      <div className="me">
-         <Sidebar  />
-
-       
+      <div className="container__wrapper">
+        {/* <div className=""> */}
+          <Sidebar />
+        {/* </div> */}
+     
+        <div className="main_section">
           {children}
-      
-      
+        </div>
+        
       </div>
 
     </main>

@@ -1,43 +1,51 @@
 .sidebar {
-    width: 18%;
-}
-.sidebar_items {
-    padding: 4px 20px;
-    display: flex;
-    align-items: center;
-    gap:4px;
-    
-    &:hover {
-        text-decoration: underline;
-        background-color: red;
-      }
-  
-    ul {
-      list-style-type: none;
-      padding: 0;
-      &:hover {
-        text-decoration: underline;
-        background-color: red;
-      }
-      li {
-        // margin: 10px 0;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+width: 300px;
+    .sidebarLink_title_text {
+        padding: 8px 40px;
+        font-size: 14px;
+    }
+
+    .sidebar_items {
+        padding: 5px 10px;
         display: flex;
         align-items: center;
-  
-        img {
-          margin-right: 10px;
+        gap: 6px;
+      
+
+        &.active {
+            background-color: #f3fdfd;
+            border-left: 5px solid #3bcccd;
         }
+
+        p {
+            color: #7b8db1;
+        }
+
         &:hover {
-            text-decoration: underline;
-            background-color: red;
-          }
-  
-        a {
-          text-decoration: none;
-  
-  
-          
+            text-decoration: none;
+            background-color: #f3fdfd;
         }
-      }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            /* Width of the scrollbar */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            /* Background of the scrollbar track */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            /* Background of the scrollbar thumb */
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+            /* Background of the scrollbar thumb on hover */
+        }
     }
 }

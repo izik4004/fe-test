@@ -5,16 +5,12 @@ import React from 'react'
 const Home = () => {
 
   return (
-    <section className='main_section'>
-
-      
-        <div className=''>
-            <header className=''>
+    <section>
+        <div >
+            <header>
                <h1>zik</h1>
             </header>
         </div>
-
-
     </section>
   )
 }

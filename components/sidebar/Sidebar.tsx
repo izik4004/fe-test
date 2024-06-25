@@ -18,9 +18,9 @@ const Sidebar: React.FC = () => {
     <ul>
       {links.map((link, index) => (
         <li key={index} className={`sidebar_items ${isActive(link.route) ? 'active' : ''}`}>
-          <Link href={link.route}>
+          <Link href={link.route} className='sidebar_items'>
             <Image src={link.imgURL} alt={link.label} width={25} height={20} />
-            <span>{link.label}</span>
+            <p>{link.label}</p>
           </Link>
         </li>
       ))}
@@ -31,17 +31,17 @@ const Sidebar: React.FC = () => {
 
   return (
     <div className="sidebar">
-      <div className="sidebar_header">
-        <li className='sidebar_items'>
+      <div className="sidebar_items">
+        <Link href="/" className='sidebar_items'>
           <Image src={dashboardIcon} alt="Dashboard" width={25} height={20} />
-          <Link href="/">Dashboard</Link>
-        </li>
+          <p>Dashboard</p>
+        </Link>
       </div>
-      <h3>{sidebarLinks.customers}</h3>
+      <div className='sidebarLink_title_text'><h3>{sidebarLinks.customers}</h3></div>
       {renderLinks(sidebarLinks.customersUrl, isActive)}
-      <h3>{sidebarLinks.businesses}</h3>
+      <div className='sidebarLink_title_text'><h3>{sidebarLinks.businesses}</h3></div>
       {renderLinks(sidebarLinks.businessUrl, isActive)}
-      <h3>{sidebarLinks.settings}</h3>
+      <div className='sidebarLink_title_text'><h3>{sidebarLinks.settings}</h3></div>
       {renderLinks(sidebarLinks.settingsUrl, isActive)}
     </div>
   );
