@@ -21,7 +21,7 @@ html {
 }
 
 body {
-    box-sizing: border-box;
+    // box-sizing: border-box;
     overflow-x: hidden;
     line-height: 1.5;
     font-family: "Lato", sans-serif;
@@ -32,23 +32,19 @@ body {
 
 .container__wrapper {
     display: flex;
-    height: 100vh;
-    padding-top: 5rem;
+    // height: 100vh;
 }
 
 
-.nav_wrapper {
-    position: fixed;
-   
-}
+
 
 .main_section {
     background-color: var(--background-color);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 2rem;
     width: 100vw;
     // height: 100vh;
-    overflow-y: hidden;
+    // overflow-y: hidden;
     // position: relative;
     // margin-bottom: 20px;
 }

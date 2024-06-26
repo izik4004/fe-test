@@ -1,6 +1,5 @@
-"use client"
-
 // Table.tsx
+"use client"
 import React from 'react';
 import { useTable, usePagination, Column as TableColumn, TableInstance, Row } from 'react-table';
 import { Person, TableStateWithPagination } from '@/Types';
@@ -44,7 +43,7 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
         {
             columns,
             data,
-            initialState: { pageIndex: 0, pageSize: 5 } as Partial<TableStateWithPagination>,
+            initialState: { pageIndex: 0, pageSize: 10 } as Partial<TableStateWithPagination>,
         },
         usePagination
     ) as TableInstanceWithPagination<Person>;
@@ -70,7 +69,14 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
                             <tr {...row.getRowProps()} key={row.id}>
                                 {row.cells.map((cell) => (
                                     <td {...cell.getCellProps()} key={cell.column.id}>
-                                        {cell.render('Cell')}
+                                        {/* Render the status with conditional class based on status value */}
+                                        {cell.column.id === 'status' ? (
+                                            <span className={`status ${row.original.status.toLowerCase()}`}>
+                                                {row.original.status}
+                                            </span>
+                                        ) : (
+                                            cell.render('Cell')
+                                        )}
                                     </td>
                                 ))}
                             </tr>

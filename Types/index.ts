@@ -22,6 +22,8 @@ export interface TableStateWithPagination extends TableState<Person> {
   pageIndex: number;
   pageSize: number;
 }
+
+// types.ts
 // types.ts
 export interface Person {
   id: number;
@@ -30,7 +32,11 @@ export interface Person {
   email: string;
   gender: string;
   university: string;
+  status: 'inactive' | 'active' | 'blacklisted' | 'pending'; // Define the status type
 }
+
+// Ensure your mock data (MOCK_DATA.json) includes this field for each person
+
 
 export interface Column {
   Header: string;

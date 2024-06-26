@@ -43,6 +43,34 @@
                 &:hover {
                     background-color: #f1f1f1;
                 }
+
+                // Status column styling
+                td.status {
+                    text-align: center;
+                    font-weight: bold;
+                    padding: 8px;
+                    border-radius: 5px;
+                }
+
+                td.status.inactive {
+                    background-color: #f44336; // Red
+                    color: white;
+                }
+
+                td.status.active {
+                    background-color: #4caf50; // Green
+                    color: white;
+                }
+
+                td.status.blacklisted {
+                    background-color: #000000; // Black
+                    color: white;
+                }
+
+                td.status.pending {
+                    background-color: #ff9800; // Orange
+                    color: white;
+                }
             }
         }
     }
@@ -82,14 +110,6 @@
             margin: 0 5px;
             border: 1px solid #ddd;
             border-radius: 3px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .pagination {
-            select {
-                display: none; // Hide select on small screens
-            }
         }
     }
 }
