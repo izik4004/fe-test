@@ -18,7 +18,7 @@ const page = () => {
 
   const fetchData = async () => {
     try {
-      const apiKey = '922j01hi8gjgr98r4mq954s9owt14on7w7n8g9s7'; // Replace with your actual API key or token
+      const apiKey = ''; // Replace with your actual API key or token
       const response = await fetch('https://api.json-generator.com/templates/gQJiRwCJ5mJk/data', {
         headers: {
           Authorization: `Bearer ${apiKey}`,
