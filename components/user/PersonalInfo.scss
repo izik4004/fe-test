@@ -1,0 +1,36 @@
+
+
+.personal-info {
+    max-width: 1200px;
+    margin: 0 auto;
+    // padding: 20px;
+
+    h2 {
+        font-size: 24px;
+        color: #2f4f82;
+        margin-bottom: 20px;
+    }
+
+    .info-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .info-item {
+            flex: 1 1 calc(15% - 10px);
+            // min-width: 250px;
+
+            h3 {
+                font-size: 14px;
+                color: #6b7280;
+                margin-bottom: 5px;
+            }
+
+            p {
+                font-size: 16px;
+                color: #374151;
+                margin: 0;
+            }
+        }
+    }
+}
