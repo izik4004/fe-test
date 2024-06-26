@@ -1,24 +1,24 @@
-// Stats.tsx
+// src/StatCard.tsx
 import React from 'react';
 import './Stats.scss';
-import Image, { StaticImageData } from 'next/image'
 
-interface StatsProps {
-    count: number;
-    iconUrl: string | StaticImageData;
+interface StatCardProps {
+    title: string;
+    value: string;
+    icon: React.ReactNode;
 }
 
-const Stats: React.FC<StatsProps> = ({ count, iconUrl }) => {
+const StatCard: React.FC<StatCardProps> = ({ title, value, icon }) => {
     return (
-        <div className="stats">
-            <div className="icon">
-                <Image src={iconUrl} alt="Icon" width={ 20} height={20} />
-            </div>
-            <div className="count">
-                <span>{count}</span>
+        <div className="stat-card">
+          
+            <div className="stat-card__info">
+                <div className="stat-card__icon">{icon}</div>
+                <h3 className="stat-card__title">{title}</h3>
+                <p className="stat-card__value">{value}</p>
             </div>
         </div>
     );
 };
 
-export default Stats;
+export default StatCard;

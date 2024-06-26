@@ -15,9 +15,9 @@ export default function RootLayout({
         <Navbar />
       </div>
       <div className="container__wrapper">
-        {/* <div className=""> */}
+        <div className="sidebar__wrapper">
           <Sidebar />
-        {/* </div> */}
+        </div>
      
         <div className="main_section">
           {children}

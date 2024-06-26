@@ -4,6 +4,7 @@ import React from 'react'
 import fakeData from '../../../MOCK_DATA.json';
 import Stats from '@/components/stat/Stats';
 import userIcon from '../../../public/avatar.png';
+import StatCard from '@/components/stat/Stats';
 
 const page = () => {
   const data = React.useMemo(() => fakeData as Person[], []);
@@ -43,8 +44,11 @@ const page = () => {
   );
   return (
     <div>
-      <div>
-        <Stats count={userCount} iconUrl={userIcon} />
+      <div className="stat-cards">
+        <StatCard title="Users" value="1,234" icon="👤" />
+        <StatCard title="Revenue" value="$12,345" icon="💰" />
+        <StatCard title="Orders" value="567" icon="📦" />
+        <StatCard title="Orders" value="567" icon="📦" />
       </div>
       <Table columns={columns} data={data} />
     </div>

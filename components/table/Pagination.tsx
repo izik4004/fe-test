@@ -48,6 +48,21 @@ const Pagination: React.FC<PaginationProps> = ({
 
     return (
         <div className="pagination">
+            <span>
+                Showing
+            <select
+                value={pageSize}
+                onChange={(e) => {
+                    setPageSize(Number(e.target.value));
+                }}
+            >
+                {[5, 10, 20, 30, 40, 50].map((size) => (
+                    <option key={size} value={size}>
+                        Show {size}
+                    </option>
+                ))}
+                </select>
+            </span>
             <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
                 {'<<'}
             </button>
