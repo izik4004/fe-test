@@ -43,4 +43,42 @@ export interface Column {
   accessor: keyof Person;
 }
 
-  
+interface UserProfile {
+  name: string;
+  company: string;
+  dob: string; // Date of Birth
+  gender: string;
+  marital_status: string;
+  type_of_residence: string;
+  children: string;
+  bank: string;
+  account_number: number;
+  address: string;
+}
+
+interface UserEducation {
+  level: string;
+  employement_status: string;
+  employment_sector: string;
+  duration_of_employement: number;
+  loan_repayment: number;
+}
+
+interface UserSocials {
+  // Define properties if there are any, or leave it as an empty object
+}
+
+export interface User {
+  id: string;
+  phone: string;
+  email: string;
+  username: string;
+  profile: UserProfile;
+  education: UserEducation;
+  socials: UserSocials;
+  apiKey: string;
+  organization: string;
+  status: string;
+  createdAt: string; // Date
+  updatedAt: string; // Date
+}
