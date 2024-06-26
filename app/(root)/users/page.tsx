@@ -1,12 +1,41 @@
+"use client"
+
 import { Column, Person } from '@/Types';
 import Table from '@/components/table/Table'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import fakeData from '../../../MOCK_DATA.json';
 import Stats from '@/components/stat/Stats';
 import userIcon from '../../../public/avatar.png';
 import StatCard from '@/components/stat/Stats';
+import {User} from "@/Types/index"
 
 const page = () => {
+  const [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const apiKey = ''; // Replace with your actual API key or token
+      const response = await fetch('https://api.json-generator.com/templates/gQJiRwCJ5mJk/data', {
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const data = await response.json();
+      setUsers(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  console.log(users)
+  
   const data = React.useMemo(() => fakeData as Person[], []);
   const userCount = 100;
   const columns: Column[] = React.useMemo(
