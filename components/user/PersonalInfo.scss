@@ -1,27 +1,28 @@
 
 
 .personal-info {
-    max-width: 1200px;
     margin: 0 auto;
-    // padding: 20px;
+    padding: 30px 0px;
 
     h2 {
         font-size: 24px;
         color: #2f4f82;
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
     }
 
     .info-grid {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
+        border-bottom: 0.2px solid gray;
+        padding-bottom: 20px;
 
         .info-item {
-            flex: 1 1 calc(15% - 10px);
+            flex: 0 1 calc(15% - 10px);
             // min-width: 250px;
 
             h3 {
-                font-size: 14px;
+                font-size: 12px;
                 color: #6b7280;
                 margin-bottom: 5px;
             }
@@ -31,6 +32,12 @@
                 color: #374151;
                 margin: 0;
             }
+                      
         }
+          .info-grid>*:last-child {
+              border-bottom: none;
+          }
     }
+
+       
 }

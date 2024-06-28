@@ -38,10 +38,13 @@ export interface Person {
 // Ensure your mock data (MOCK_DATA.json) includes this field for each person
 
 
-export interface Column {
+type UserKeys = keyof User;
+
+interface UserColumn {
   Header: string;
-  accessor: keyof Person;
+  accessor: UserKeys;
 }
+
 
 interface UserProfile {
   name: string;
@@ -54,6 +57,11 @@ interface UserProfile {
   bank: string;
   account_number: number;
   address: string;
+  email: string;
+  phone: string
+  status: string;
+  createdAt: string; // Date
+   organization: string;
 }
 
 interface UserEducation {
@@ -65,10 +73,15 @@ interface UserEducation {
 }
 
 interface UserSocials {
+    twitter: any;
+    facebook: any;
+    instagram: any;
   // Define properties if there are any, or leave it as an empty object
 }
 
 export interface User {
+  userguarantor: any;
+  guarantor: any;
   id: string;
   phone: string;
   email: string;

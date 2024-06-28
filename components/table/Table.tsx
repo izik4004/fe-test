@@ -1,14 +1,15 @@
-// Table.tsx
 "use client"
 import React from 'react';
 import { useTable, usePagination, Column as TableColumn, TableInstance, Row } from 'react-table';
-import { Person, TableStateWithPagination } from '@/Types';
+import { User, TableStateWithPagination } from '@/Types';
 import './Table.scss';
 import Pagination from './Pagination';
+import TableRowWithModal from './TableRowWithModal';
+import SearchModal from '../modals/SearchModal';
 
 interface TableProps {
-    columns: TableColumn<Person>[];
-    data: Person[];
+    columns: TableColumn<User>[];
+    data: User[];
 }
 
 // Extend the TableInstance to include pagination properties
@@ -46,7 +47,7 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
             initialState: { pageIndex: 0, pageSize: 10 } as Partial<TableStateWithPagination>,
         },
         usePagination
-    ) as TableInstanceWithPagination<Person>;
+    ) as TableInstanceWithPagination<User>;
 
     return (
         <div className="table-container">
@@ -57,6 +58,7 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
                             {headerGroup.headers.map((column) => (
                                 <th {...column.getHeaderProps()} key={column.id}>
                                     {column.render('Header')}
+                                    <span><SearchModal  /></span>
                                 </th>
                             ))}
                         </tr>
@@ -79,6 +81,9 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
                                         )}
                                     </td>
                                 ))}
+                                <td >
+                                    <TableRowWithModal user={row.original} />
+                                </td>
                             </tr>
                         );
                     })}

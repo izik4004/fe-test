@@ -20,13 +20,13 @@
 
         thead {
             tr {
-                background-color: #009879;
-                color: #ffffff;
                 text-align: left;
             }
         }
 
-        th,
+        th{
+            padding: 34px 15px;
+        }
         td {
             padding: 12px 15px;
         }
@@ -35,13 +35,13 @@
             tr {
                 border-bottom: 1px solid #dddddd;
 
-                &:nth-of-type(even) {
-                    background-color: #f3f3f3;
-                }
+                // &:nth-of-type(even) {
+                //     background-color: #f3f3f3;
+                // }
 
-                &:last-of-type {
-                    border-bottom: 2px solid #009879;
-                }
+                // &:last-of-type {
+                //     border-bottom: 2px solid #009879;
+                // }
 
                 &:hover {
                     background-color: #f1f1f1;
@@ -114,5 +114,12 @@
             border: 1px solid #ddd;
             border-radius: 3px;
         }
+    }
+    .more_item {
+        // display: flex;
+        text-decoration: none;
+        align-items: center;
+        padding-top:0.6rem;
+        cursor: pointer;
     }
 }
