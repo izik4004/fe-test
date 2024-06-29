@@ -1,6 +1,7 @@
 .modal {
     position: absolute;
     background: white;
+    width: 280px;
     //  padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -19,17 +20,65 @@
 
 .modal_items_wrapper {
     border-radius: 10px;
-
-    .modal_items {
-        padding: 0.9rem 2rem;
+    padding: 10px;
+    
+    .items {
+       
         display: flex;
-        align-items: center;
-        gap: 16px;
-        font-size: 19px;
-
-        &:hover {
-            background-color: red;
-            cursor: pointer;
+        flex-direction: column;
+        // align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        color:gray;
+        padding:8px 0px;
+        input {
+            padding: 8px 0px;
+            border-radius: 6px;
+            border:0.5px solid gray;
+            
         }
+
+        .select {
+            padding: 8px 0px;
+            border-radius: 6px;
+        }
+       
+      
     }
+         .action_buttons {
+             display: flex;
+             width: 100%;
+             justify-content: space-between;
+             gap:14px;
+             padding-top: 8px;
+            button {
+                width: 100%;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 6px;
+               
+            }
+            .reset {
+                background-color: white;
+                border: 1px solid gray;
+                &:hover{
+                    background-color: #3bcccd;
+                }
+            }
+            .filter {
+                background-color: #3bcccd;
+                border: none;
+            &:hover {
+                    background-color: white;
+                    border: 1px solid #3bcccd;
+                }
+            }
+         }
+       
+       
 }
+  .icon {
+      margin-bottom: -3px;
+      margin-left: 8px;
+      cursor: pointer;
+  }

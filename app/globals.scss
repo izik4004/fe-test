@@ -5,6 +5,14 @@
     --text-color: #203f7c;
     --hover-color: #f3fdfd;
     --background-color: #fafbfa;
+    --blacklisted-bgColor: #FCE6EA;
+    --blacklisted-textColor: #F17493;
+    --pending-bgColor: #FDF6E4;
+    --pending-textColor: #E8B200;
+    --inactive-bgColor: #F4F5F6;
+    --inactive-textColor: #68738D;
+    --active-bgColor: #EEF8F3;
+    --active-textColor: #89E0A2;
 
 
 *, *::before, *::after {
@@ -78,12 +86,6 @@ body {
       }
   }
 
-@include respond(tab-land) {
-    padding-inline: 1.5rem;
-}
-
-@include respond(phone) {
-    padding-inline: 0.8rem;
-}
+ 
 
 }

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { IoMdMore } from 'react-icons/io';
-import { RiUserUnfollowLine } from "react-icons/ri";
-import { FaEye } from "react-icons/fa";
-import { GrUserExpert } from "react-icons/gr";
 import { useRouter } from "next/navigation";
 // import { useRouter } from 'next/router'; 
+import Image from 'next/image'
+import filter from "../../public/filter-results-button.png"
+
 
 import "./SearchModal.scss";
 import { User } from '@/Types'; // Adjust the import path accordingly
@@ -12,41 +12,88 @@ import Modal from '../table/Modal';
 
 
 
-const SearchModal = () => {
+interface SearchModalProps {
+    onFilter: (filters: Partial<User>) => void;
+}
+
+const SearchModal: React.FC<SearchModalProps> = ({ onFilter }) => {
     const [showModal, setShowModal] = useState(false);
-    const router = useRouter();
+    const [filters, setFilters] = useState<Partial<User>>({
+        organization: '',
+        username: '',
+        email: '',
+        createdAt: '',
+        phone: '',
+        status: ''
+    });
 
     const handleToggleModal = () => {
         setShowModal(prevShowModal => !prevShowModal);
     };
 
-    // const handleViewDetails = () => {
-    //     setShowModal(false);
-    //     // Save user details to local storage
-    //     localStorage.setItem('selectedUser', JSON.stringify(user));
-    //     // Navigate to the user details page
-    //     router.push('/users/details');
-    // };
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setFilters({
+            ...filters,
+            [name]: value
+        });
+    };
+
+    const handleFilter = () => {
+        onFilter(filters);
+        handleToggleModal();
+    };
+
+    const handleReset = () => {
+        setFilters({
+            organization: '',
+            username: '',
+            email: '',
+            createdAt: '',
+            phone: '',
+            status: ''
+        });
+    };
 
     return (
         <>
-            <div onClick={handleToggleModal} style={{ cursor: 'pointer' }}>
-                <IoMdMore size={26} />
-            </div>
+            <Image src={filter} alt='logo' width={15} height={15} onClick={handleToggleModal} className='icon' />
+            {/* <IoMdMore onClick={handleToggleModal} size={20} className='icon'/> */}
             {showModal && (
                 <Modal show={showModal} onClose={handleToggleModal}>
-                    <div className=''>
-                        <div className='modal_items' >
-                            <FaEye />
-                            <p>View Details</p>
+                    <div className='modal_items_wrapper'>
+                        <div className='items'>
+                            <label>Organization</label>
+                            <select name="organization" value={filters.organization || ''} onChange={handleChange} className='select'>
+                                <option value="">Select</option>
+                            </select>
                         </div>
-                        <div className='modal_items'>
-                            <RiUserUnfollowLine />
-                            <p>Blacklist User</p>
+                        <div className='items'>
+                            <label>Username</label>
+                            <input type="text" name="username" value={filters.username || ''} onChange={handleChange} />
                         </div>
-                        <div className='modal_items'>
-                            <GrUserExpert />
-                            <p>Activate User</p>
+                        <div className='items'>
+                            <label>Email</label>
+                            <input type="text" name="email" value={filters.email || ''} onChange={handleChange} />
+                        </div>
+                        <div className='items'>
+                            <label>Date</label>
+                            <input type="date" name="date" value={filters.createdAt || ''} onChange={handleChange} />
+                        </div>
+                        <div className='items'>
+                            <label>Phone Number</label>
+                            <input type="text" name="phoneNumber" value={filters.phone || ''} onChange={handleChange} />
+                        </div>
+                        <div className='items'>
+                            <label>Status</label>
+                            <select name="status" value={filters.status || ''} onChange={handleChange} className='select'>
+                                <option value="">Select</option>
+
+                            </select>
+                        </div>
+                        <div className='action_buttons'>
+                            <button className='reset' onClick={handleReset}>Reset</button>
+                            <button className='filter' onClick={handleFilter}>Filter</button>
                         </div>
                     </div>
                 </Modal>

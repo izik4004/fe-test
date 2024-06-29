@@ -1,0 +1,13 @@
+@import "../../styles/breakpoint.scss";
+
+.mobile__nav__wrapper {
+    background-color: red;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include respond-to(md) {
+            display: none;
+        }
+}

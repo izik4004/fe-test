@@ -47,6 +47,7 @@ interface UserColumn {
 
 
 interface UserProfile {
+    username: any;
   name: string;
   company: string;
   dob: string; // Date of Birth
@@ -77,6 +78,11 @@ interface UserSocials {
     facebook: any;
     instagram: any;
   // Define properties if there are any, or leave it as an empty object
+}
+
+export interface TableStateWithPagination {
+    pageIndex: number;
+    pageSize: number;
 }
 
 export interface User {

@@ -1,32 +1,73 @@
+// Userdetails.scss
+
+@import '../../../../styles/breakpoint.scss'; // Adjust the path to where your breakpoints.scss file is located
+
 .user_details {
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
 
+    @include respond-to(xs) {
+        display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
     .summary {
         display: flex;
         padding: 2rem;
         align-items: center;
-        gap: 20px
+       
+        gap: 20px;
+        @include respond-to(xs) {
+            align-items:flex-start;
+                flex-direction: column;
+            }
+            @include respond-to(md) {
+            flex-direction: row;
+            align-items: center;
+            }
     }
+               
 
     .initials_wrapper {
         display: flex;
         align-items: center;
         gap: 14px;
+
+        @include respond-to(sm) {
+            gap: 10px;
+        }
+
+        @include respond-to(xs) {
+            gap: 5px;
+        }
     }
 
     .more_user_details {
         display: flex;
         flex-direction: column;
-        // align-items: center;
         border-left: 0.8px solid gray;
         padding-left: 20px;
+
+        @include respond-to(md) {
+            border-left: none;
+            padding-left: 0;
+        }
+
     }
 
     .other_links {
         padding: 0rem 2rem;
-
+      
+        @include respond-to(xs) {
+            width: 100%;
+            display: flex;
+            padding: 0rem 2rem;
+            overflow-x: scroll;
+            font-size: 14px;
+              
+            }
         & ul {
             display: flex;
             justify-content: space-between;
@@ -35,15 +76,23 @@
         & li {
             cursor: pointer;
             padding: 1rem;
+            &.active {
+                    color: #3BCCCD;
+                    border-bottom: 2px solid var(--primary-color);
+                }
 
             &:hover {
                 color: #3BCCCD;
                 border-bottom: 2px solid #3BCCCD;
+            }
 
+            
+
+            @include respond-to(md) {
+                padding: 0.5rem;
             }
         }
     }
-
 }
 
 .personal_info_wrapper {
@@ -51,5 +100,16 @@
     padding: 2rem;
     margin: 60px 0px;
     background-color: white;
-   
+ 
+
+    @include respond-to(sm) {
+        padding: 1rem;
+        margin: 30px 0px;
+        
+    }
+
+    @include respond-to(xs) {
+        padding: 0.5rem;
+        margin: 15px 0px;
+    }
 }

@@ -1,0 +1,12 @@
+// _typography.scss
+body {
+    font-size: 1rem; // 16px by default
+}
+
+h1 {
+    font-size: 2rem; // 32px
+
+    @include respond-to(md) {
+        font-size: 1.5rem; // 40px on medium screens
+    }
+}

@@ -1,19 +1,20 @@
-// Table.scss
+@import "../../styles/breakpoint.scss";
 
 .table-container {
     width: 100%;
     margin: 0 auto;
     padding: 20px;
     overflow-x: auto;
-@media (max-width: 768px) {
+
+    @include respond-to(md) {
         width: auto;
     }
-    
+
     table {
         width: 100%;
         border-collapse: collapse;
-        margin: 20px 0;
-        font-size: 1em;
+        margin: 10px 0;
+        font-size: 14px;
         font-family: Arial, sans-serif;
         min-width: 600px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -24,24 +25,46 @@
             }
         }
 
-        th{
+        th {
             padding: 34px 15px;
         }
+
         td {
             padding: 12px 15px;
+
+
+            .status_inactive {
+                background-color: var(--inactive-bgColor); // Red
+                color: var(--inactive-textColor);
+                padding: 4px 16px;
+                border-radius: 26px;
+            }
+
+            .status_active {
+                background-color: var(--active-bgColor); // Green
+                color: var(--active-textColor);
+                padding: 4px 16px;
+                border-radius: 26px;
+            }
+
+            .status_blacklisted {
+                background-color: var(--blacklisted-bgColor); // Black
+                color: var(--blacklisted-textColor);
+                padding: 4px 16px;
+                border-radius: 26px;
+            }
+
+            .status_pending {
+                background-color: var(--pending-bgColor); // Orange
+                color: var(--pending-textColor);
+                padding: 4px 16px;
+                border-radius: 26px;
+            }
         }
 
         tbody {
             tr {
                 border-bottom: 1px solid #dddddd;
-
-                // &:nth-of-type(even) {
-                //     background-color: #f3f3f3;
-                // }
-
-                // &:last-of-type {
-                //     border-bottom: 2px solid #009879;
-                // }
 
                 &:hover {
                     background-color: #f1f1f1;
@@ -55,71 +78,78 @@
                     border-radius: 5px;
                 }
 
-                td.status.inactive {
-                    background-color: #f44336; // Red
-                    color: white;
-                }
 
-                td.status.active {
-                    background-color: #4caf50; // Green
-                    color: white;
-                }
-
-                td.status.blacklisted {
-                    background-color: #000000; // Black
-                    color: white;
-                }
-
-                td.status.pending {
-                    background-color: #ff9800; // Orange
-                    color: white;
-                }
             }
         }
     }
 
-    .pagination {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 20px 0;
 
-        button {
-            border: 1px solid #009879;
-            background-color: #009879;
-            color: white;
-            padding: 8px 12px;
-            margin: 0 5px;
-            cursor: pointer;
-            border-radius: 3px;
 
-            &:disabled {
-                opacity: 0.5;
-                cursor: not-allowed;
-            }
-        }
-
-        input {
-            width: 50px;
-            padding: 8px;
-            margin: 0 5px;
-            text-align: center;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-        }
-
-        select {
-            padding: 8px;
-            margin: 0 5px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-        }
-    }
     .more_item {
-        // display: flex;
         text-decoration: none;
         align-items: center;
-        padding-top:0.6rem;
+        padding-top: 0.6rem;
         cursor: pointer;
+    }
+
+    .table__dropdown {
+        margin-top: 24px;
+    }
+}
+
+.pagination {
+    display: flex;
+    // flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 0px 14px;
+
+    @include respond-to(md) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    button {
+        border: 1px solid #009879;
+        background-color: #009879;
+        color: white;
+        padding: 8px 12px;
+        margin: 5px 0;
+        cursor: pointer;
+        border-radius: 3px;
+
+        @include respond-to(md) {
+            margin: 0 5px;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    input {
+        width: 50px;
+        padding: 8px;
+        margin: 5px 0;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+
+        @include respond-to(md) {
+            margin: 0 5px;
+        }
+    }
+
+    select {
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+
+        @include respond-to(md) {
+            margin: 0 5px;
+        }
     }
 }

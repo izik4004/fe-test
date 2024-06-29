@@ -50,15 +50,18 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
     ) as TableInstanceWithPagination<User>;
 
     return (
+        <>
         <div className="table-container">
             <table {...getTableProps()}>
                 <thead>
                     {headerGroups.map((headerGroup) => (
                         <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
                             {headerGroup.headers.map((column) => (
-                                <th {...column.getHeaderProps()} key={column.id}>
+                                <th {...column.getHeaderProps()} key={column.id} className='table__dropdown'>
                                     {column.render('Header')}
-                                    <span><SearchModal  /></span>
+                                    <SearchModal onFilter={function (filters: Partial<User>): void {
+                                        throw new Error('Function not implemented.');
+                                    } }  />
                                 </th>
                             ))}
                         </tr>
@@ -73,7 +76,7 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
                                     <td {...cell.getCellProps()} key={cell.column.id}>
                                         {/* Render the status with conditional class based on status value */}
                                         {cell.column.id === 'status' ? (
-                                            <span className={`status ${row.original.status.toLowerCase()}`}>
+                                            <span className={`status_${row.original.status.toLowerCase()}`}>
                                                 {row.original.status}
                                             </span>
                                         ) : (
@@ -89,6 +92,8 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
                     })}
                 </tbody>
             </table>
+       
+            </div>
             <Pagination
                 canPreviousPage={canPreviousPage}
                 canNextPage={canNextPage}
@@ -100,7 +105,7 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
                 pageSize={pageSize}
                 setPageSize={setPageSize}
             />
-        </div>
+        </>
     );
 };
 

@@ -19,7 +19,7 @@ const page = () => {
 
   const fetchData = async () => {
     try {
-      const apiKey = ''; // Replace with your actual API key or token
+      const apiKey = 'rueutd9zkm0d2jh1rchxkb26h1zf72v6do2mi23c'; // Replace with your actual API key or token
       const response = await fetch('https://api.json-generator.com/templates/gQJiRwCJ5mJk/data', {
         headers: {
           Authorization: `Bearer ${apiKey}`,
@@ -35,7 +35,19 @@ const page = () => {
     }
   };
 
-  console.log(users)
+  // const handleFilter = (filters: Partial<User>) => {
+  //   const filtered = users.filter(item => {
+  //     return Object.keys(filters).every(key => {
+  //       const filterValue = filters[key as keyof User];
+  //       if (!filterValue) return true;
+  //       if (key === 'date') {
+  //         return item[key as keyof Person] === filterValue;
+  //       }
+  //       return (item[key as keyof Person] as string).toLowerCase().includes((filterValue as string).toLowerCase());
+  //     });
+  //   });
+  //   setUsers(filtered);
+  // };
 
   const data = React.useMemo(() => fakeData as Person[], []);
   const userCount = 100;
