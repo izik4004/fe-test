@@ -13,7 +13,7 @@ import { LiaCoinsSolid } from "react-icons/lia";
 import Stats from '@/components/stat/Stats';
 
 
-const page = () => {
+const Page = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
@@ -110,4 +110,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

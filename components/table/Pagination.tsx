@@ -42,7 +42,7 @@ const Pagination: React.FC<PaginationProps> = ({
     useEffect(() => {
         // Set initial page size
         setPageSize(pageSizeForScreen);
-    }, [isSmallScreen, setPageSize]);
+    }, [isSmallScreen, setPageSize, pageSizeForScreen]);
 
     const renderPageNumbers = () => {
         const maxPagesToShow = 5;

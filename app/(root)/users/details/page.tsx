@@ -118,7 +118,7 @@ const Page = () => {
                         </div>
                     </div>
                     <div className='more_user_details'>
-                        <h5>User's Tier</h5>
+                        <h5>User&apos;s Tier</h5>
                         <p>LSQF587Gio</p>
                     </div>
                     <div className='more_user_details'>
