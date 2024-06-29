@@ -1,4 +1,5 @@
 @import "../styles//mixins.scss";
+@import "../styles/breakpoint.scss";
 
 :root {
     --primary-color: #3BCCCD;
@@ -13,79 +14,153 @@
     --inactive-textColor: #68738D;
     --active-bgColor: #EEF8F3;
     --active-textColor: #89E0A2;
+    --users-textColor: #DF17FE;
+    --users-bgColor: #FCE9FE;
+    --activeUsers-textColor: #5719FF;
+    --activeUsers-bgColor: #DF17FE;
+    --loanUsers-bgColor: #FFEEEC;
+    --loanUsers-textColor: #F45F45;
+    --savingsUser-bgColor: #FFEAF1;
+    --savingsUser-textColor: #FF3266;
 
 
-*, *::before, *::after {
-    padding: 0;
-    margin: 0;
-    box-sizing: inherit;
-    outline: none;
-    text-decoration: none;
-    list-style: none;
-}
+    *,
+    *::before,
+    *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: inherit;
+        outline: none;
+        text-decoration: none;
+        list-style: none;
+    }
 
-html {
-    scroll-behavior: smooth;
-}
+    html {
+        scroll-behavior: smooth;
+    }
 
-body {
-    box-sizing: border-box;
-    overflow-x: hidden;
-    line-height: 1.5;
-    font-family: "Lato", sans-serif;
-    color: var(--text-color);
-    overflow-y: scroll;
-}
-
-
-.container__wrapper {
-    display: flex;
-    // height: 100vh;
-}
+    body {
+        box-sizing: border-box;
+        overflow-x: hidden;
+        line-height: 1.5;
+        font-family: "Lato", sans-serif;
+        color: var(--text-color);
+        overflow-y: scroll;
+    }
 
 
+    .container__wrapper {
+        display: flex;
+        // height: 100vh;
+    }
 
 
-.main_section {
-    background-color: var(--background-color);
-    // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    width: 100vw;
-    // height: 100vh;
-    // overflow-y: hidden;
-    // position: relative;
-    // margin-bottom: 20px;
-    @media (max-width: 768px) {
+
+
+    .main_section {
+        background-color: var(--background-color);
+        // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        width: 100vw;
+
+        @media (max-width: 768px) {
             padding: 0rem;
         }
-}
+    }
 
-.stat-cards {
-    display: flex;
-    justify-content: space-between;
-   
-    flex-wrap: wrap;
-    // width: 100%;
-    align-items: center;
-    // flex-direction: row;
-    @media (max-width: 768px) {
+    .stat-cards {
+        display: flex;
+        justify-content: space-between;
+
+        flex-wrap: wrap;
+        // width: 100%;
+        align-items: center;
+
+        // flex-direction: row;
+        @media (max-width: 768px) {
             justify-content: center;
-            
-        }
-}
 
-  .sidebar__wrapper {
-    @media (max-width: 576px) {
+        }
+    }
+
+    .sidebar__wrapper {
+        @media (max-width: 576px) {
             .sidebar {
                 display: none;
-    
+
             }
-     }
-      @media (max-width: 768px) {
-          display: none;
-      }
-  }
+        }
 
- 
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
 
+    .page_title {
+        padding: 18px 0px;
+        display: flex;
+        justify-content: space-between;
+        // flex-direction: row;
+        align-items: center;
+
+        @include respond-to(xs) {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 2rem;
+            overflow-x: scroll;
+            font-size: 14px;
+            align-items: flex-start;
+            gap: 18px;
+
+        }
+
+        @include respond-to(md) {
+            flex-direction: row;
+            padding: 1rem ;
+        }
+
+        .page_button {
+            display: flex;
+            gap: 26px;
+
+            .blacklist {
+                border: 1px solid var(--blacklisted-textColor);
+                color: var(--blacklisted-textColor);
+
+                &:hover {
+                    background-color: var(--blacklisted-textColor);
+                    color: white;
+                }
+            }
+
+            .activate {
+                border: 1px solid var(--primary-color);
+                color: var(--primary-color);
+
+                &:hover {
+                    background-color: var(--primary-color);
+                    color: white;
+                }
+            }
+        }
+
+        button {
+            padding: 10px 40px;
+            border-radius: 10px;
+            background-color: white;
+            cursor: pointer;
+
+            @include respond-to(xs) {
+                flex-direction: row;
+                padding: 10px 12px;
+
+            }
+        }
+    }
+
+    .return_arrow {
+        display: flex;
+        padding-top: 10px;
+    }
 }

@@ -1,24 +1,26 @@
-// src/StatCard.tsx
+// StatCard.tsx
 import React from 'react';
 import './Stats.scss';
 
 interface StatCardProps {
     title: string;
-    value: string;
+    value: number;
     icon: React.ReactNode;
+    iconStyle: React.CSSProperties; // Add iconStyle prop
 }
 
-const StatCard: React.FC<StatCardProps> = ({ title, value, icon }) => {
+const Stats: React.FC<StatCardProps> = ({ title, value, icon, iconStyle }) => {
     return (
         <div className="stat-card">
-          
+            <div className="stat-card__icon" style={iconStyle}>
+                {icon}
+            </div>
             <div className="stat-card__info">
-                <div className="stat-card__icon">{icon}</div>
-                <h3 className="stat-card__title">{title}</h3>
-                <p className="stat-card__value">{value}</p>
+                <div className="stat-card__title">{title}</div>
+                <div className="stat-card__value">{value}</div>
             </div>
         </div>
     );
 };
 
-export default StatCard;
+export default Stats;

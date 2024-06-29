@@ -1,13 +1,25 @@
 @import "../../styles/breakpoint.scss";
 
 .mobile__nav__wrapper {
-    background-color: red;
+    display: absolute;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 14px;
     display: flex;
     align-items: center;
+   
     justify-content: space-between;
 
     @include respond-to(md) {
             display: none;
         }
+}
+
+.mobile__nav {
+    background-color: white;
+    position: absolute;
+    // margin-top: 2rem;
+    width: 80%;
+    float: right;
+    // height: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

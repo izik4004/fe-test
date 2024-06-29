@@ -7,6 +7,9 @@
  
     .app_logo {
         width: 16%;
+        // display: flex;
+        // gap:8px;
+        // align-items: center;
     }
 
     .nav_items {
@@ -51,7 +54,7 @@
             }
     
             .button {
-                background-color: #3BCCCD;; 
+                background-color: var(--primary-color); 
                 padding: 0.5rem 1rem;
                 display: flex;
                 align-items: center;
@@ -78,4 +81,8 @@
   }
         
                  
+}
+
+.search_icon {
+    color:white;
 }

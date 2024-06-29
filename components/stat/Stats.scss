@@ -1,36 +1,54 @@
-// src/StatCard.scss
+@import "../../styles/breakpoint.scss";
+
 .stat-card {
     display: flex;
-    align-items: center;
+    align-items: start;
+    flex-direction: column;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 16px;
-    width: 18%;
+    width: 20%;
     margin: 16px;
+    font-size: 14px;
+    gap:8px;
     transition: transform 0.3s ease;
+
+    .page_title {
+        @include respond-to(xs) {
+            padding-top: 40px;
+            background-color: red;
+        }
+    }
 
     &:hover {
         transform: translateY(-5px);
     }
 
     &__icon {
-        font-size: 24px;
-        margin-right: 16px;
+        font-size: 20px;
+        border: 1px solid transparent; // Default border, can be overridden by style prop
+        padding: 14px 0px;
+        border-radius: 50%;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     &__info {
         display: flex;
         flex-direction: column;
+        gap: 6px;
     }
 
     &__title {
-        font-size: 16px;
+        font-size: 14px;
         color: #333;
     }
 
     &__value {
-        font-size: 24px;
+        font-size: 18px;
         font-weight: bold;
         color: #000;
     }

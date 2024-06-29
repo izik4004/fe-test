@@ -6,6 +6,7 @@ import './Table.scss';
 import Pagination from './Pagination';
 import TableRowWithModal from './TableRowWithModal';
 import SearchModal from '../modals/SearchModal';
+import { formatDate } from '@/constants/utility';
 
 interface TableProps {
     columns: TableColumn<User>[];
@@ -79,6 +80,8 @@ const Table: React.FC<TableProps> = ({ columns, data }) => {
                                             <span className={`status_${row.original.status.toLowerCase()}`}>
                                                 {row.original.status}
                                             </span>
+                                        ) : cell.column.id === 'createdAt' ? (
+                                            formatDate(row.original.createdAt)
                                         ) : (
                                             cell.render('Cell')
                                         )}

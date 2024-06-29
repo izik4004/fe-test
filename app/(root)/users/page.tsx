@@ -4,11 +4,14 @@ import { Person } from '@/Types';
 import Table from '@/components/table/Table'
 import React, { useEffect, useState } from 'react'
 import fakeData from '../../../MOCK_DATA.json';
-import Stats from '@/components/stat/Stats';
-import userIcon from '../../../public/avatar.png';
+import { IoIosArrowRoundBack } from "react-icons/io";
 import StatCard from '@/components/stat/Stats';
-import { User } from "@/Types/index"
+import { User } from "@/Types/index";
 import { Column } from 'react-table';
+import { FaUsers } from "react-icons/fa6";
+import { LiaCoinsSolid } from "react-icons/lia";
+import Stats from '@/components/stat/Stats';
+
 
 const page = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -19,7 +22,7 @@ const page = () => {
 
   const fetchData = async () => {
     try {
-      const apiKey = 'rueutd9zkm0d2jh1rchxkb26h1zf72v6do2mi23c'; // Replace with your actual API key or token
+      const apiKey = ''; // Replace with your actual API key or token
       const response = await fetch('https://api.json-generator.com/templates/gQJiRwCJ5mJk/data', {
         headers: {
           Authorization: `Bearer ${apiKey}`,
@@ -35,22 +38,6 @@ const page = () => {
     }
   };
 
-  // const handleFilter = (filters: Partial<User>) => {
-  //   const filtered = users.filter(item => {
-  //     return Object.keys(filters).every(key => {
-  //       const filterValue = filters[key as keyof User];
-  //       if (!filterValue) return true;
-  //       if (key === 'date') {
-  //         return item[key as keyof Person] === filterValue;
-  //       }
-  //       return (item[key as keyof Person] as string).toLowerCase().includes((filterValue as string).toLowerCase());
-  //     });
-  //   });
-  //   setUsers(filtered);
-  // };
-
-  const data = React.useMemo(() => fakeData as Person[], []);
-  const userCount = 100;
 
   const columns: Column<User>[] = React.useMemo(() => [
     {
@@ -83,15 +70,40 @@ const page = () => {
     []
   )
 
-
+  const activeUsers = users.filter(user => user.status === 'Active');
 
   return (
     <div>
+      
+      
       <div className="stat-cards">
-        <StatCard title="Users" value="1,234" icon="👤" />
-        <StatCard title="Revenue" value="$12,345" icon="💰" />
-        <StatCard title="Orders" value="567" icon="📦" />
-        <StatCard title="Orders" value="567" icon="📦" />
+        <div className='page_title'>
+          <h3>Users</h3>
+        </div>
+        <Stats
+          title="USERS"
+          value={users.length}
+          icon={<FaUsers />}
+          iconStyle={{ backgroundColor: '#FCE9FE', color: '#DF17FE' }}
+        />
+        <Stats
+          title="ACTIVE USERS"
+          value={activeUsers.length}
+          icon={<FaUsers />}
+          iconStyle={{ backgroundColor: '#EEE9FE', color: '#5719FF' }}
+        />
+        <Stats
+          title="USERS WITH LOANS"
+          value={0}
+          icon={<LiaCoinsSolid />}
+          iconStyle={{ backgroundColor: '#FFEEEC', color: '#F45F45' }}
+        />
+        <Stats
+          title="USERS WITH SAVINGS"
+          value={0}
+          icon={<LiaCoinsSolid />}
+          iconStyle={{ backgroundColor: '#FFEAF1', color: '#FF3266' }}
+        />
       </div>
       <Table columns={columns} data={users} />
     </div>

@@ -33,7 +33,7 @@
     .initials_wrapper {
         display: flex;
         align-items: center;
-        gap: 14px;
+        gap: 20px;
 
         @include respond-to(sm) {
             gap: 10px;
@@ -71,6 +71,7 @@
         & ul {
             display: flex;
             justify-content: space-between;
+            gap:20px;
         }
 
         & li {
@@ -112,4 +113,11 @@
         padding: 0.5rem;
         margin: 15px 0px;
     }
+}
+
+.section {
+    border-bottom: 0.2px solid gray;
+}
+.section:last-child {
+    border:none
 }

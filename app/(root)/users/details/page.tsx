@@ -5,6 +5,9 @@ import Image from 'next/image';
 import person from "../../../../public/avatar1.png";
 import PersonalInfo from '@/components/user/PersonalInfo';
 import { User } from '@/Types';
+import { IoIosArrowRoundBack } from 'react-icons/io';
+import Link from 'next/link';
+
 
 const Page = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -91,6 +94,20 @@ const Page = () => {
 
     return (
         <div>
+            <Link href="/users">
+                <div className='return_arrow'>
+                    <IoIosArrowRoundBack size={20} />
+                    <span>Back to Users</span>
+                </div>
+            </Link>
+            <div className='page_title'>
+              
+                <h3>Users</h3>
+                <div className='page_button'>
+                    <button className='blacklist'>BLACKLIST USER</button>
+                    <button className='activate'>ACTIVATE USER</button>
+                </div>
+            </div>
             <div className='user_details'>
                 <div className='summary'>
                     <div className='initials_wrapper'>

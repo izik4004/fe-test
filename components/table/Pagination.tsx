@@ -1,5 +1,3 @@
-// Pagination.tsx
-
 import React, { useState, useEffect } from 'react';
 
 interface PaginationProps {
@@ -46,41 +44,66 @@ const Pagination: React.FC<PaginationProps> = ({
         setPageSize(pageSizeForScreen);
     }, [isSmallScreen, setPageSize]);
 
+    const renderPageNumbers = () => {
+        const maxPagesToShow = 5;
+        const totalPages = pageOptions.length;
+        const currentPage = pageIndex + 1;
+        let startPage = 1;
+        let endPage = Math.min(maxPagesToShow, totalPages);
+
+        if (currentPage > Math.floor(maxPagesToShow / 2)) {
+            startPage = Math.max(currentPage - Math.floor(maxPagesToShow / 2), 1);
+            endPage = Math.min(startPage + maxPagesToShow - 1, totalPages);
+        }
+
+        if (endPage - startPage + 1 < maxPagesToShow) {
+            startPage = Math.max(endPage - maxPagesToShow + 1, 1);
+        }
+
+        const pageNumbers = [];
+        for (let i = startPage; i <= endPage; i++) {
+            pageNumbers.push(
+                <button
+                    key={i}
+                    onClick={() => gotoPage(i - 1)}
+                    className={i === currentPage ? 'active' : ''}
+                >
+                    {i}
+                </button>
+            );
+        }
+
+        return pageNumbers;
+    };
+
     return (
         <div className="pagination">
             <div>
-            <span>
-                Showing
-            <select
-                value={pageSize}
-                onChange={(e) => {
-                    setPageSize(Number(e.target.value));
-                }}
-            >
-                {[5, 10, 20, 30, 40, 50].map((size) => (
-                    <option key={size} value={size}>
-                        Show {size}
-                    </option>
-                ))}
-                </select>
+                <span>
+                    Showing
+                    <select
+                        value={pageSize}
+                        onChange={(e) => {
+                            setPageSize(Number(e.target.value));
+                        }}
+                    >
+                        {[5, 10, 20, 30, 40, 50].map((size) => (
+                            <option key={size} value={size}>
+                                Show {size}
+                            </option>
+                        ))}
+                    </select>
                 </span>
             </div>
-            {/* <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-                {'<<'}
-            </button> */}
             <div>
-            <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-                {'<'}
-            </button>
-            <button onClick={() => nextPage()} disabled={!canNextPage}>
-                {'>'}
+                <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+                    {'<'}
+                </button>
+                {renderPageNumbers()}
+                <button onClick={() => nextPage()} disabled={!canNextPage}>
+                    {'>'}
                 </button>
             </div>
-            {/* <button onClick={() => gotoPage(pageOptions.length - 1)} disabled={!canNextPage}>
-                {'>>'}
-            </button> */}
-            
-     
         </div>
     );
 };

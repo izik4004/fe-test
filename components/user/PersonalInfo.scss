@@ -22,7 +22,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
-        border-bottom: 0.2px solid gray;
+        // border-bottom: 0.2px solid gray;
         padding-bottom: 20px;
 
         @include respond-to(xs) {
@@ -66,3 +66,4 @@
 
 
 }
+
