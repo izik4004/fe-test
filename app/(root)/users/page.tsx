@@ -19,10 +19,10 @@ const Page = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
   const fetchData = async () => {
     try {
-      const apiKey = ''; // Replace with your actual API key or token
       const response = await fetch('https://api.json-generator.com/templates/gQJiRwCJ5mJk/data', {
         headers: {
           Authorization: `Bearer ${apiKey}`,
