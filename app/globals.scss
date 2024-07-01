@@ -117,7 +117,7 @@
 
         @include respond-to(md) {
             flex-direction: row;
-            padding: 1rem ;
+            padding: 1rem;
         }
 
         .page_button {
@@ -164,3 +164,105 @@
         padding-top: 10px;
     }
 }
+
+.login_wrapper {
+    width: 100vw;
+    display: flex;
+    height: 100vh;
+
+    @include respond-to(xs) {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    @include respond-to(md) {
+        flex-direction: row;
+       
+    }
+
+    
+    .login_image_container {
+        background-color: #FEFEFF;
+
+        justify-content: center;
+        align-items: center;
+
+        @include respond-to(xs) {
+            display: none;
+        }
+
+        @include respond-to(md) {
+            display: flex;
+            width: 50%;
+            flex-direction: column;
+        }
+    }
+}
+
+.login_form {
+
+    background-color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    gap: 16px;
+
+    @include respond-to(xs) {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        width: 100%;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    @include respond-to(md) {
+        flex-direction: column;
+        padding: 1rem;
+        width: 50%;
+        padding: 0px 10rem;
+    }
+
+    button {
+        padding: 10px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--primary-color);
+            background-color: white;
+            border: 1px solid var(--primary-color);
+        }
+    }
+
+    h3 {
+        font-size: 38px;
+    }
+
+    h5 {
+        font-size: 10px;
+        color: var(--primary-color);
+    }
+
+    input {
+        padding: 10px;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+   
+}
+
+.login_logo{
+    position: absolute;
+    padding: 5rem; 
+    
+}
+
