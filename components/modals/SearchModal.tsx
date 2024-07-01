@@ -8,7 +8,8 @@ import filter from "../../public/filter-results-button.png"
 
 import "./SearchModal.scss";
 import { User } from '@/Types'; // Adjust the import path accordingly
-import Modal from '../table/Modal';
+import Modal from './Modal';
+
 
 
 
@@ -61,7 +62,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ onFilter }) => {
             {/* <IoMdMore onClick={handleToggleModal} size={20} className='icon'/> */}
             {showModal && (
                 <Modal show={showModal} onClose={handleToggleModal}>
-                    <div className='modal_items_wrapper'>
+                    <div className='modal_items_wrapper_wrapper'>
                         <div className='items'>
                             <label>Organization</label>
                             <select name="organization" value={filters.organization || ''} onChange={handleChange} className='select'>

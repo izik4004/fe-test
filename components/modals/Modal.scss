@@ -1,14 +1,15 @@
 
 
-     .modal {
+     .modal_modal {
         position: absolute;
          background: white;
-         // padding: 10px;
+         width: 280px;
+         padding: 10px;
          border-radius: 8px;
          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
          z-index: 10;
          
-        right: 4rem;
+       
      }
 
      .modal-close-btn {
@@ -24,11 +25,11 @@
      .modal_items_wrapper {
         border-radius: 10px;
      .modal_items {
-        padding:0.5rem;
+        padding:0.9rem 2rem;
         display: flex;
         align-items: center;
         gap: 16px;
-        font-size: 12px;
+        font-size: 14px;
 
         &:hover {
             background-color: #3bcccd;
